@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Login from "./components/Login";
+import ChatRoom from "./components/ChatRoom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import AuthProvider from "./context/AuthProvider";
+import AppProvider from "./context/AppProvider";
+import "antd/dist/antd.css";
+import AddRoomModal from "./components/Modals/AddRoomModal";
+import InviteMemberModal from "./components/Modals/InviteMemberModal";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppProvider>
+          <Switch>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/" component={ChatRoom}></Route>
+          </Switch>
+          <AddRoomModal />
+          <InviteMemberModal />
+        </AppProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
