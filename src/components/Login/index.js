@@ -8,11 +8,11 @@ import { generateKeywords } from "../../firebase/services";
 const { Title } = Typography;
 
 const fbProvider = new firebase.auth.FacebookAuthProvider();
-// const googleProvider = new firebase.auth.GoogleAuthProvider();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 export default function Login() {
-  const handleLogin = async () => {
-    const { additionalUserInfo, user } = await auth.signInWithPopup(fbProvider);
+  const handleLogin = async (propvider) => {
+    const { additionalUserInfo, user } = await auth.signInWithPopup(propvider);
     console.log("data user:", additionalUserInfo.isNewUser);
     if (additionalUserInfo?.isNewUser) {
       addDocument("users", {
@@ -35,11 +35,14 @@ export default function Login() {
           </Title>
           <Button
             style={{ width: "100%", marginBottom: 5 }}
-            // onClick={() => handleLogin(googleProvider)}
+            onClick={() => handleLogin(googleProvider)}
           >
             Đăng nhập bằng Google
           </Button>
-          <Button style={{ width: "100%" }} onClick={() => handleLogin()}>
+          <Button
+            style={{ width: "100%" }}
+            onClick={() => handleLogin(fbProvider)}
+          >
             Đăng nhập bằng Facebook
           </Button>
         </Col>
