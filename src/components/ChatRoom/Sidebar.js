@@ -10,11 +10,6 @@ const SidebarStyled = {
   height: "100vh",
 };
 export default function Sidebar() {
-  useEffect(() => {
-    db.collection("user").onSnapshot((snapshot) => {
-      const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    });
-  }, []);
   return (
     <div style={SidebarStyled}>
       <Row>

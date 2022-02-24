@@ -1,7 +1,6 @@
 import { Button, Typography } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
-import React, { useContext } from "react";
-import styled from "styled-components";
+import React from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { auth } from "../../firebase/config";
 

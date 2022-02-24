@@ -1,10 +1,8 @@
 import { Collapse, Typography } from "antd";
-import React, { useContext, useMemo } from "react";
-import useFirestore from "../../hook/useFirestore";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Button } from "antd";
 import { PlusSquareOutlined } from "@ant-design/icons";
-import { AuthContext } from "../../context/AuthProvider";
 import { AppContext } from "../../context/AppProvider";
 
 const { Panel } = Collapse;
