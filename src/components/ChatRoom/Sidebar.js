@@ -1,6 +1,5 @@
 import { Col, Row } from "antd";
-import React, { useEffect } from "react";
-import { db } from "../../firebase/config";
+import React from "react";
 import RoomList from "./RoomList";
 import UserInfo from "./UserInfo";
 
