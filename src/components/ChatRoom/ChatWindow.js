@@ -142,7 +142,7 @@ export default function ChatWindow() {
                 type="text"
                 onClick={() => setIsInviteMemberVisible(true)}
               >
-                Mời
+                Invite
               </Button>
               <Avatar.Group size="small" maxCount={2}>
                 {members.map((member) => (
@@ -175,20 +175,20 @@ export default function ChatWindow() {
                   ref={inputRef}
                   onChange={handleInputChange}
                   onPressEnter={handleOnSubmit}
-                  placeholder="Nhập tin nhắn..."
+                  placeholder="Text your message..."
                   bordered={false}
                   autoComplete="off"
                 />
               </Form.Item>
               <Button type="primary" onClick={handleOnSubmit}>
-                Gửi
+                Send
               </Button>
             </FormStyled>
           </ContentStyled>
         </>
       ) : (
         <Alert
-          message="Hãy chọn phòng"
+          message="Please select room chat!"
           type="info"
           showIcon
           style={{ margin: 5 }}
